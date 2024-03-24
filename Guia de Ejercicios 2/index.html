@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mensaje Dinámico</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #mensaje {
+      position: absolute;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="mensaje">
+    <h1>Cargando...</h1>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var divMensaje = document.getElementById("mensaje");
+      divMensaje.innerHTML = '';
+
+      var mensaje = document.createElement("h1");
+      mensaje.textContent = "Hola Mundo!!!";
+
+      divMensaje.appendChild(mensaje);
+
+      // Función para mover el mensaje
+      function moverMensaje(event) {
+        var mouseX = event.clientX;
+        var mouseY = event.clientY;
+
+        divMensaje.style.left = mouseX + 20 + "px"; // Ajusta la posición hacia la derecha
+        divMensaje.style.top = mouseY + 20 + "px"; // Ajusta la posición hacia abajo
+      }
+
+      // Evento para detectar el movimiento del mouse
+      document.addEventListener("mousemove", moverMensaje);
+    });
+  </script>
+</body>
+</html>
